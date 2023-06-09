@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 3003;
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -13,7 +13,11 @@ app.get("/need", (req, res) => {
   res.send("Pasia hai to $$$");
 });
 app.get("/final", (req, res) => {
-  res.send("IAS. Pranay Premdas Alone");
+  res.redirect("/home");
+});
+
+app.get("/home", (req, res) => {
+  res.sendFile("./Views/Home.html", { root: __dirname });
 });
 
 app.listen(port, () => {
